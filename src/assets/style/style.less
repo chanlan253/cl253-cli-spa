@@ -1,0 +1,114 @@
+/* 全局样式，名称不hash */
+/* 重置一些样式 */
+ul,li,p{
+  margin: 0;
+  padding:0;
+  list-style: none;
+}
+#app{
+  .ant-btn-primary:active, .ant-btn-primary.active{
+    background-color: @primary-color_active;
+    border-color:@primary-color_active;
+  }
+  .ant-btn-danger:active, .ant-btn-danger.active{
+    background-color:@error-color_active;
+    border-color:@error-color_active;
+  }
+  .ant-btn-primary-disabled, .ant-btn-primary.disabled, .ant-btn-primary[disabled], .ant-btn-primary-disabled:hover, .ant-btn-primary.disabled:hover, .ant-btn-primary[disabled]:hover, .ant-btn-primary-disabled:focus, .ant-btn-primary.disabled:focus, .ant-btn-primary[disabled]:focus, .ant-btn-primary-disabled:active, .ant-btn-primary.disabled:active, .ant-btn-primary[disabled]:active, .ant-btn-primary-disabled.active, .ant-btn-primary.disabled.active, .ant-btn-primary[disabled].active{
+    color: #fff;
+    background-color: #6B8CFF;
+    border-color: #6B8CFF;
+  }
+  .ant-table table{
+    border:1px solid @border-color-base;
+  }
+  .ant-table-tbody > tr:last-child{
+    td{
+      border: none;
+    }
+  }
+  .ant-table{
+    color: #252A3D;
+  }
+  .ant-table-thead > tr > th{
+    background:@table-selected-row-bg;
+    color: @text-color;
+    padding: 10px;
+  }
+
+}
+/* 懒加载样式 */
+.pageLoad{
+  position: absolute;
+  left: 45%;
+  top:45%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 登录 */
+.login-form{
+  .ant-form-explain{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    top:48px;
+  }
+  .ant-form-item{
+    margin-bottom: 32px;
+  }
+}
+
+/* 左侧菜单 */
+#menuNav .active{
+  color: @primary-color;
+  background: #060b16;
+}
+
+.user_info_down .downlist{
+  height: 28px;
+  line-height: 28px;
+}
+
+/* 模块box */
+.box{
+  margin:8px;
+  padding:0 20px 20px 20px;
+  background: #fff;
+  box-shadow:0px 4px 8px 0px rgba(212,218,225,0.2);
+  .box-title{
+    height: 56px;
+    line-height: 56px;
+    .title_name{
+      font-size: 16px;
+      color: #1C2441;
+    }
+  }
+}
+
+/* 表格顶部筛选模块 */
+.table_filter{
+  display: flex;
+  justify-content: space-between;
+
+  .filter_right{
+    padding-left: 50px;
+  }
+  .filter_list{
+    margin-right:16px;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    &:last-child{
+      margin-right:0;
+    }
+  }
+}
+
+.table_wrap{
+  padding:20px 0;
+}
+
+
+
