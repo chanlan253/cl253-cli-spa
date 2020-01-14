@@ -1,4 +1,4 @@
-//222
+//redux
 export const reducers = (state, action) => {
   switch (action.type) {
     case "SET_LOGIN_USER":
