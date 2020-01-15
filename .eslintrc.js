@@ -45,7 +45,9 @@ module.exports = {
     "import/prefer-default-export": 0,
     "import/newline-after-import": 0,
     "no-unreachable": 1, //不能有无法执行的代码
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error",{
+      "endOfLine":"auto"
+    }]
   },
   settings: {
     "import/ignore": ["node_modules"]
