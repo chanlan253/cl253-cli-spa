@@ -40,6 +40,7 @@ module.exports = {
     "react/self-closing-comp": "off",
     "react/react-in-jsx-scope": 2, //使用JSX时防止丢失React
     "react/no-unused-state": 0,
+    "react/no-typos": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
