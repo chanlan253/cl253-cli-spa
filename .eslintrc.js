@@ -25,6 +25,7 @@ module.exports = {
     "prefer-const": 0,
     "no-unused-vars": "off",
     "spaced-comment": "off",
+    "no-nested-ternary": "off",
     "no-const-assign": 2, //禁止修改const声明的变量
     "no-dupe-keys": 2, //在创建对象字面量时不允许键重复
     "no-duplicate-case": 2, //switch中的case标签不能重复
