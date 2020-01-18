@@ -46,6 +46,7 @@ module.exports = {
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
     "import/newline-after-import": 0,
+    "no-case-declarations": "error",
     "no-unreachable": 1, //不能有无法执行的代码
     "prettier/prettier": ["error",{
       "endOfLine":"auto"
