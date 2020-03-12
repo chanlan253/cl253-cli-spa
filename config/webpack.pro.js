@@ -57,8 +57,7 @@ const webpackConfigProd = {
         dlls: [
           "https://static.253.com/js/common_dll/common.dll.js",
           "https://static.253.com/js/common_dll/react.dll.js",
-          "https://static.253.com/js/common_dll/react_redux.dll.js",
-          "https://static.253.com/js/common_dll/sspa.dll.js"
+          "https://static.253.com/js/common_dll/react_redux.dll.js"
         ]
       },
       inject: true,
