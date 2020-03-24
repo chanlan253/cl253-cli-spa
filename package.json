@@ -7,7 +7,6 @@
     "lint": "eslint --quiet --no-inline-config  src/",
     "lint-fix": "eslint --quiet --fix src/",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js  --progress",
-    "start":"cross-env NODE_BOOT=own npm run dev",
     "build": "cross-env NODE_ENV=production npx webpack --config config/webpack.pro.js -p --progress"
   },
   "husky": {
