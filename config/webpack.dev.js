@@ -4,6 +4,7 @@ const merge = require("webpack-merge");
 const AppConfig = require("../app.config");
 const webpackConfigBase = require("./webpack.base");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const chalk = require("chalk");
 
 console.log(`${chalk.green("The current running environments：")}${chalk.blue("development")}`);
@@ -26,7 +27,8 @@ const webpackConfigDev = {
         ]
       }
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new FriendlyErrorsWebpackPlugin()
   ],
 
   devServer: {
@@ -35,6 +37,7 @@ const webpackConfigDev = {
     historyApiFallback: true,
     open: AppConfig.autoOpen || false,
     hot: true,
+    quiet: true,
     noInfo: true,
     overlay: {
       errors: true

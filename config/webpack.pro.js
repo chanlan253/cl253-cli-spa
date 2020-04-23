@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const path = require("path");
 const AppConfig = require("../app.config");
 const merge = require("webpack-merge");
@@ -7,6 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const chalk = require("chalk");
 
 console.log(`${chalk.green("The current running environments：")}${chalk.blue("production")}`);
@@ -75,7 +75,10 @@ const webpackConfigProd = {
         minifyURLs: true
       }
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: AppConfig.analyzer ? "server" : "disabled"
+    })
   ]
 };
 
