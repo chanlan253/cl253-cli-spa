@@ -1,6 +1,6 @@
 const path = require("path");
 const AppConfig = require("../app.config");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const webpackConfigBase = require("./webpack.base");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -14,38 +14,42 @@ const webpackConfigProd = {
   mode: "production",
   devtool: "source-map",
   optimization: {
-    runtimeChunk: {
-      name: entrypoint => `runtime-${entrypoint.name}`
-    },
     splitChunks: {
-      chunks: "all",
-      name: false,
+      chunks: "async",
+      name: true,
+      minChunks: 1,
       cacheGroups: {
         vendors: {
+          chunks: "all",
+          maxSize: 100 * 1024,
           minChunks: 1,
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          priority: -10,
         },
         default: {
+          maxSize: 200 * 1024,
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
+          reuseExistingChunk: true,
+        },
+      },
     },
     minimize: true,
     minimizer: [
       new TerserJSPlugin({
+        sourceMap: false,
         cache: path.resolve(".cache"),
         parallel: true, // 开启多进程压缩
         terserOptions: {
           compress: {
-            drop_console: false
-          }
-        }
+            drop_console: false,
+          },
+        },
       }),
-      new OptimizeCSSAssetsPlugin()
-    ]
+      new OptimizeCSSAssetsPlugin({
+        sourceMap: false,
+      }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -57,8 +61,8 @@ const webpackConfigProd = {
         dlls: [
           "https://static.253.com/js/common_dll/common.dll.js",
           "https://static.253.com/js/common_dll/react.dll.js",
-          "https://static.253.com/js/common_dll/react_redux.dll.js"
-        ]
+          "https://static.253.com/js/common_dll/react_redux.dll.js",
+        ],
       },
       inject: true,
       // noInfo: true,
@@ -72,14 +76,14 @@ const webpackConfigProd = {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true
-      }
+        minifyURLs: true,
+      },
     }),
     new CleanWebpackPlugin(),
     new BundleAnalyzerPlugin({
-      analyzerMode: AppConfig.analyzer ? "server" : "disabled"
-    })
-  ]
+      analyzerMode: AppConfig.analyzer ? "server" : "disabled",
+    }),
+  ],
 };
 
 module.exports = merge(webpackConfigBase, webpackConfigProd);

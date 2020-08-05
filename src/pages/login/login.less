@@ -16,11 +16,10 @@
 }
 
 .login_banner {
-  background: #fff;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url("~assets/images/login_banner.png") center no-repeat;
+  background: #fff url("~assets/images/login_banner.png") no-repeat center;
   background-size: cover;
   position: relative;
   text-align: center;
@@ -36,76 +35,76 @@
   }
 }
 
-.login_form {
+/* 登录 */
+:global(.login-form) {
   min-width: 250px;
   max-width: 450px;
   width: 55%;
   user-select: none;
-  h2{
-    font-size:30px;
-    color:rgba(36,43,61,1);
+  :global(.ant-form-item-explain) {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    top: 48px;
+  }
+  :global(.ant-form-item) {
+    margin-bottom: 32px;
+  }
+}
+
+.login_form {
+  h2 {
+    font-size: 30px;
+    color: rgba(36, 43, 61, 1);
     margin-bottom: 36px;
   }
-  .login_item{
+  .login_item {
     margin-bottom: 30px;
     position: relative;
   }
-  input{
+  input {
     border-radius: 0 !important;
   }
-  button{
+  button {
     border-radius: 0;
     text-align: left;
   }
-  .code{
-    input{
-      padding-right: 120px;
+  .code {
+    display: flex;
+    input {
+      flex: 1;
+    }
+    button {
+      width: 120px;
+      margin-left: 12px;
+      text-align: center;
     }
   }
-  .getcode{
-    position: absolute;
-    width: 120px;
-    line-height: 42px;
-    height: 42px;
-    font-size: 14px;
-    right: 0;
-    top: 0;
-    text-align: center;
-    cursor: pointer;
-    color: @gray-color;
-    z-index: 1000;
-    &:hover{
-      color: @primary-color;
-    }
-    &.disabled{
-      color: @disabled-color;
-    }
-  }
-  .other{
+  .other {
     display: flex;
     justify-content: space-between;
-    a:last-child{
+    a:last-child {
       color: @gray-color;
-      &:hover{
+      &:hover {
         color: @primary-color;
       }
     }
   }
-  .login-form-button{
-  display: inline-flex;
-  justify-content: space-between;
+  .login-form-button {
+    display: inline-flex;
+    justify-content: space-between;
     color: #fff;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .login_left {
-   display: none;
+    display: none;
   }
 }
 @media screen and (min-width: 1450px) {
-  .login_form{
+  .login_form {
     width: 42%;
   }
 }
-

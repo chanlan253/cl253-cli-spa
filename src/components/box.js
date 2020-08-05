@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-class Box extends Component {
-  render() {
-    return (
-      <div className="box">
-        <div className="box-title">
-          <div className="title_name">{this.props.title}</div>
-        </div>
-        <div className="box-content">{this.props.children}</div>
+import React from "react";
+export default (props) => {
+  return (
+    <div className="box">
+      <div className="box-title">
+        <div className="title_name">{props.title}</div>
       </div>
-    );
-  }
-}
-export default Box;
+      <div className="box-content">{props.children}</div>
+    </div>
+  );
+};

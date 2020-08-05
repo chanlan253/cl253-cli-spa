@@ -1,12 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import style from "pages/layout/layout.less";
-class ScrollBar extends Component {
-  render() {
-    return (
-      <div className={style.scrollbar}>
-        <div className={style.scroll_wrap}>{this.props.children}</div>
-      </div>
-    );
-  }
-}
-export default ScrollBar;
+export default (props) => {
+  return (
+    <div className={style.scrollbar}>
+      <div className={style.scroll_wrap}>{props.children}</div>
+    </div>
+  );
+};

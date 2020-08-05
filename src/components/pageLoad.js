@@ -1,12 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { Spin } from "antd";
-class PageLoad extends Component {
-  render() {
-    return (
-      <div className="pageLoad">
-        <Spin size="large" tip="页面加载中..." />
-      </div>
-    );
-  }
-}
-export default PageLoad;
+export default () => {
+  return (
+    <div className="pageLoad">
+      <Spin size="large" tip="页面加载中..." />
+    </div>
+  );
+};
