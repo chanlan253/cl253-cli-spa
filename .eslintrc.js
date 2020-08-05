@@ -3,22 +3,22 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
-  plugins: ["react"],
+  plugins: ["react", "react-hooks"],
   extends: ["eslint-config-ali/react", "plugin:prettier/recommended"],
   parser: "babel-eslint",
   globals: {
     Atomics: "readonly",
     window: true,
-    node: true
+    node: true,
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: "module"
+    sourceType: "module",
   },
   rules: {
     semi: 2, //强制使用分号
@@ -33,6 +33,8 @@ module.exports = {
     "no-func-assign": 2, //禁止重复的函数声明
     "no-redeclare": 2, //禁止重复声明变量
     "no-undef": 2, //不能有未定义的变量
+    "no-console": "off",
+    "no-param-reassign": "off",
     "no-useless-constructor": 0,
     "react/jsx-uses-react": "off",
     "react/no-danger": 0, //防止使用危险的JSX属性
@@ -42,17 +44,24 @@ module.exports = {
     "react/react-in-jsx-scope": 2, //使用JSX时防止丢失React
     "react/no-unused-state": 0,
     "react/no-typos": 0,
+    "react/prop-types": 0,
+    "react/no-access-state-in-setstate": "off",
+    "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
+    "react-hooks/exhaustive-deps": "warn", // 检查 effect 的依赖
     "jsx-a11y/anchor-is-valid": 0,
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
     "import/newline-after-import": 0,
     "no-case-declarations": "off",
     "no-unreachable": 1, //不能有无法执行的代码
-    "prettier/prettier": ["error",{
-      "endOfLine":"auto"
-    }]
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
   },
   settings: {
-    "import/ignore": ["node_modules"]
-  }
+    "import/ignore": ["node_modules"],
+  },
 };

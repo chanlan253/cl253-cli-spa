@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const AppConfig = require("../app.config");
 const webpackConfigBase = require("./webpack.base");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -20,15 +20,11 @@ const webpackConfigDev = {
       filename: "index.html",
       templateParameters: {
         title: AppConfig.title || "",
-        dlls: [
-          "https://static.253.com/js/common_dll/common.dll.js",
-          "https://static.253.com/js/common_dll/react.dll.js",
-          "https://static.253.com/js/common_dll/react_redux.dll.js"
-        ]
-      }
+        dlls: [],
+      },
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new FriendlyErrorsWebpackPlugin()
+    new FriendlyErrorsWebpackPlugin(),
   ],
 
   devServer: {
@@ -40,13 +36,14 @@ const webpackConfigDev = {
     quiet: true,
     noInfo: true,
     overlay: {
-      errors: true
+      errors: true,
     },
     host: "0.0.0.0",
     port: AppConfig.port,
-    proxy: AppConfig.proxy || {}
-  }
+    proxy: AppConfig.proxy || {},
+  },
 };
+
 module.exports = merge(webpackConfigBase, webpackConfigDev);
 
 console.log(`${chalk.green("Run address：")}${chalk.blue("http://localhost:%s")}`, AppConfig.port);

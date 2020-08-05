@@ -3,23 +3,18 @@ export default [
   {
     path: "/login",
     name: "login",
-    component: lazy(() => import("pages/login"))
+    component: lazy(() => import("pages/login")),
   },
   {
-    path: "/layout",
+    path: "/",
     name: "layout",
     component: lazy(() => import("pages/layout")),
     childrens: [
       {
-        path: "/layout/home",
+        path: "/home",
         name: "home",
-        component: lazy(() => import("pages/home"))
+        component: lazy(() => import("pages/home")),
       },
-      {
-        path: "/layout/list",
-        name: "list",
-        component: lazy(() => import("pages/list"))
-      }
-    ]
-  }
+    ],
+  },
 ];

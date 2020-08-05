@@ -1,5 +1,9 @@
 //redux
-export const reducers = (state, action) => {
+import { createStore } from "redux";
+const defaultValue = {
+  userInfo: {},
+};
+const reducers = (state = defaultValue, action) => {
   switch (action.type) {
     case "SET_LOGIN_USER":
       return { ...state, ...{ userInfo: action.userInfo } };
@@ -7,3 +11,5 @@ export const reducers = (state, action) => {
       return { ...state, ...{ userInfo: {} } };
   }
 };
+
+export default createStore(reducers);
