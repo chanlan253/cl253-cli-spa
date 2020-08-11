@@ -191,7 +191,7 @@ module.exports = {
                 mode: "local",
                 localIdentName: "[local]--[hash:base64:5]",
                 auto: (resourcePath) => {
-                  return !/\/node_modules\/|\/src\/assets/g.test(resourcePath);
+                  return !/(\/|\\)node_modules(\/|\\)|(\/|\\)src(\/|\\)assets/g.test(resourcePath);
                 },
               },
             },
